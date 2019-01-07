@@ -9,12 +9,33 @@ library(mapproj)
 library(munsell)
 
 
-graf_bdppc <- ggplot(data = bdppc, mapping = aes(x=Leto, y=Kolicina_eur, fill=Drzava))
-graf_bdppc <- graf_bdppc + geom_bar(stat = 'identity', position = 'dodge')
 #to se malo polepsaj
 
+graf_bdppc <- ggplot(data = bdppc, mapping = aes(x=Leto, y=Kolicina_eur, fill=Drzava)) +
+  geom_bar(stat = 'identity', position = 'dodge') +
+  theme(axis.text.x = element_text(angle = 90, size = 6)) +
+  theme(legend.text = element_text(size=8)) +
+  scale_y_discrete(name="Kolicina(€)", breaks=c('10000','20000','30000','40000','50000',
+                                                '60000','70000','80000','90000','100000'))
 #plot(graf_bdppc)
 
+
+
+graf_greenhouse <- ggplot(data = greenhouse_gas, mapping = aes(x=Leto, y=Kolicina_kg, fill=Drzava))
+graf_greenhouse <- graf_greenhouse + geom_bar(stat = 'identity', position = 'dodge')
+
+
+
+
+graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Leto, y=Delez, 
+                                                             fill=Prevozno_sredstvo, group=Drzava))
+graf_delez_ljudi <- graf_delez_ljudi + geom_bar(stat = 'identity', position = 'dodge')
+
+
+
+graf_smrti <- ggplot(data = smrti, mapping = aes(x=Drzava, y=Stevilo,
+                                                 fill=Prevozno_sredstvo, group=Leto))
+graf_smrti <- graf_smrti + geom_bar(stat = 'identity', position = 'dodge')
 
 
 # Uvozimo zemljevid Sveta
