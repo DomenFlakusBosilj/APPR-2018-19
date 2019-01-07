@@ -48,7 +48,7 @@ smrti_vlak <- smrti_vlak[,-3]
 
 greenhouse_gas <- read.csv('podatki/greenhouse_gas.csv', encoding = 'windows-1250',
                        col.names = c('Leto', 'Drzava', 'airpol', 'nace', 'unit',
-                                     'Kolicina(kg)', 'krnekaj'), na = c(':', ''))
+                                     'Kolicina.kg', 'krnekaj'), na = c(':', ''))
 greenhouse_gas <- greenhouse_gas[,-7]
 greenhouse_gas <- greenhouse_gas[,-5]
 greenhouse_gas <- greenhouse_gas[,-4]
