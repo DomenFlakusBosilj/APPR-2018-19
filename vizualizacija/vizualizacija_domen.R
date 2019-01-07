@@ -21,21 +21,21 @@ graf_bdppc <- ggplot(data = bdppc, mapping = aes(x=Leto, y=Kolicina_eur, fill=Dr
 
 
 
-graf_greenhouse <- ggplot(data = greenhouse_gas, mapping = aes(x=Leto, y=Kolicina_kg, fill=Drzava))
-graf_greenhouse <- graf_greenhouse + geom_bar(stat = 'identity', position = 'dodge')
+graf_greenhouse <- ggplot(data = greenhouse_gas, mapping = aes(x=Leto, y=Kolicina.kg, fill=Drzava)) +
+  geom_bar(stat = 'identity', position = 'dodge')
 
 
 
 
 graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Leto, y=Delez, 
-                                                             fill=Prevozno_sredstvo, group=Drzava))
-graf_delez_ljudi <- graf_delez_ljudi + geom_bar(stat = 'identity', position = 'dodge')
+                                                            fill=Prevozno_sredstvo, group=Drzava)) +
+  geom_bar(stat = 'identity', position = 'dodge')
 
 
 
 graf_smrti <- ggplot(data = smrti, mapping = aes(x=Drzava, y=Stevilo,
-                                                 fill=Prevozno_sredstvo, group=Leto))
-graf_smrti <- graf_smrti + geom_bar(stat = 'identity', position = 'dodge')
+                                                 fill=Prevozno_sredstvo, group=Leto)) +
+  geom_bar(stat = 'identity', position = 'dodge')
 
 
 # Uvozimo zemljevid Sveta
