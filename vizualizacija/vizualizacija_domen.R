@@ -35,7 +35,8 @@ graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Leto, y=Delez,
 
 graf_smrti <- ggplot(data = smrti, mapping = aes(x=Drzava, y=Stevilo,
                                                  fill=Prevozno_sredstvo, group=Leto)) +
-  geom_bar(stat = 'identity', position = 'dodge')
+  geom_bar(stat = 'identity', position = 'dodge') +
+  theme(axis.text.x = element_text(angle = 90, size = 6))
 
 
 # Uvozimo zemljevid Sveta

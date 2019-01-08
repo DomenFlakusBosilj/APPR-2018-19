@@ -15,7 +15,7 @@ delez_ljudi <- delez_ljudi[,-4]
 #Tabela 2
 
 delez_tovora <- read.csv('podatki/tovor_delezi.csv', encoding = 'windows-1250',
-                        col.names = c('Leto', 'Drzava', 'Nacin_prevoza', 'krnekaj',
+                        col.names = c('Leto', 'Drzava', 'Prevozno_sredstvo', 'krnekaj',
                                       'Delez', 'krnekaj'), na = c(':', ''))
 delez_tovora <- delez_tovora[,-6]
 delez_tovora <- delez_tovora[,-4]
