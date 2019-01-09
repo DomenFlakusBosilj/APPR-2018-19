@@ -14,12 +14,13 @@ library(munsell)
 graf_bdppc <- ggplot(data = bdppc, mapping = aes(x=Leto, y=Kolicina_eur, fill=Drzava)) +
   geom_bar(stat = 'identity', position = 'dodge') +
   theme(axis.text.x = element_text(angle = 90, size = 6)) +
-  theme(legend.text = element_text(size=8)) +
-  scale_y_discrete(name="Kolicina(€)", breaks=c('10000','20000','30000','40000','50000',
-                                                '60000','70000','80000','90000','100000'))
+  theme(legend.text = element_text(size=8)) #+
+  #scale_y_discrete(name="Kolicina(€)", breaks=c('10000','20000','30000','40000','50000',
+  #                                              '60000','70000','80000','90000','100000'))
 #plot(graf_bdppc)
 
-
+ggplot(data = bdppc, mapping = aes(x=Leto, y=Kolicina_eur, color=Drzava)) +
+  geom_line()
 
 graf_greenhouse <- ggplot(data = greenhouse_gas, mapping = aes(x=Leto, y=Kolicina.kg, fill=Drzava)) +
   geom_bar(stat = 'identity', position = 'dodge')
@@ -51,7 +52,7 @@ svet <- uvozi.zemljevid("https://www.naturalearthdata.com/http//www.naturalearth
 europe <- filter(svet, CONTINENT == "Europe")
 europe <- filter(europe, long < 55 & long > -45 & lat > 30 & lat < 85)
 
-ggplot(europe, aes(x=long, y=lat, group=group, fill=NAME)) +
+narisi_europe <- ggplot(europe, aes(x=long, y=lat, group=group, fill=NAME)) +
   geom_polygon() +
   labs(title="Evropa - osnovna slika") +
   theme(legend.position="none")

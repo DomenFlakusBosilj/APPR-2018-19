@@ -14,9 +14,9 @@
 "13",2007,"Denmark","Railways",8.8
 "14",2007,"Denmark","Roads",91.2
 "15",2007,"Denmark","Inland waterways",NA
-"16",2007,"Germany (until 1990 former territory of the FRG)","Railways",19.3
-"17",2007,"Germany (until 1990 former territory of the FRG)","Roads",69.7
-"18",2007,"Germany (until 1990 former territory of the FRG)","Inland waterways",10.9
+"16",2007,"Germany","Railways",19.3
+"17",2007,"Germany","Roads",69.7
+"18",2007,"Germany","Inland waterways",10.9
 "19",2007,"Estonia","Railways",74.2
 "20",2007,"Estonia","Roads",25.8
 "21",2007,"Estonia","Inland waterways",NA
@@ -101,9 +101,9 @@
 "100",2008,"Denmark","Railways",9
 "101",2008,"Denmark","Roads",91
 "102",2008,"Denmark","Inland waterways",NA
-"103",2008,"Germany (until 1990 former territory of the FRG)","Railways",19.3
-"104",2008,"Germany (until 1990 former territory of the FRG)","Roads",70
-"105",2008,"Germany (until 1990 former territory of the FRG)","Inland waterways",10.7
+"103",2008,"Germany","Railways",19.3
+"104",2008,"Germany","Roads",70
+"105",2008,"Germany","Inland waterways",10.7
 "106",2008,"Estonia","Railways",68.2
 "107",2008,"Estonia","Roads",31.8
 "108",2008,"Estonia","Inland waterways",NA
@@ -188,9 +188,9 @@
 "187",2009,"Denmark","Railways",9.1
 "188",2009,"Denmark","Roads",90.9
 "189",2009,"Denmark","Inland waterways",NA
-"190",2009,"Germany (until 1990 former territory of the FRG)","Railways",17.9
-"191",2009,"Germany (until 1990 former territory of the FRG)","Roads",71.8
-"192",2009,"Germany (until 1990 former territory of the FRG)","Inland waterways",10.4
+"190",2009,"Germany","Railways",17.9
+"191",2009,"Germany","Roads",71.8
+"192",2009,"Germany","Inland waterways",10.4
 "193",2009,"Estonia","Railways",74.1
 "194",2009,"Estonia","Roads",25.9
 "195",2009,"Estonia","Inland waterways",NA
@@ -275,9 +275,9 @@
 "274",2010,"Denmark","Railways",11.5
 "275",2010,"Denmark","Roads",88.5
 "276",2010,"Denmark","Inland waterways",NA
-"277",2010,"Germany (until 1990 former territory of the FRG)","Railways",18.7
-"278",2010,"Germany (until 1990 former territory of the FRG)","Roads",70.5
-"279",2010,"Germany (until 1990 former territory of the FRG)","Inland waterways",10.8
+"277",2010,"Germany","Railways",18.7
+"278",2010,"Germany","Roads",70.5
+"279",2010,"Germany","Inland waterways",10.8
 "280",2010,"Estonia","Railways",75.4
 "281",2010,"Estonia","Roads",24.6
 "282",2010,"Estonia","Inland waterways",NA
@@ -362,9 +362,9 @@
 "361",2011,"Denmark","Railways",12.4
 "362",2011,"Denmark","Roads",87.6
 "363",2011,"Denmark","Inland waterways",NA
-"364",2011,"Germany (until 1990 former territory of the FRG)","Railways",19.3
-"365",2011,"Germany (until 1990 former territory of the FRG)","Roads",71.3
-"366",2011,"Germany (until 1990 former territory of the FRG)","Inland waterways",9.4
+"364",2011,"Germany","Railways",19.3
+"365",2011,"Germany","Roads",71.3
+"366",2011,"Germany","Inland waterways",9.4
 "367",2011,"Estonia","Railways",71.6
 "368",2011,"Estonia","Roads",28.4
 "369",2011,"Estonia","Inland waterways",NA
@@ -449,9 +449,9 @@
 "448",2012,"Denmark","Railways",10.9
 "449",2012,"Denmark","Roads",89.1
 "450",2012,"Denmark","Inland waterways",NA
-"451",2012,"Germany (until 1990 former territory of the FRG)","Railways",19.1
-"452",2012,"Germany (until 1990 former territory of the FRG)","Roads",70.8
-"453",2012,"Germany (until 1990 former territory of the FRG)","Inland waterways",10.1
+"451",2012,"Germany","Railways",19.1
+"452",2012,"Germany","Roads",70.8
+"453",2012,"Germany","Inland waterways",10.1
 "454",2012,"Estonia","Railways",66.9
 "455",2012,"Estonia","Roads",33.1
 "456",2012,"Estonia","Inland waterways",NA
@@ -536,9 +536,9 @@
 "535",2013,"Denmark","Railways",11.3
 "536",2013,"Denmark","Roads",88.7
 "537",2013,"Denmark","Inland waterways",NA
-"538",2013,"Germany (until 1990 former territory of the FRG)","Railways",19.1
-"539",2013,"Germany (until 1990 former territory of the FRG)","Roads",70.7
-"540",2013,"Germany (until 1990 former territory of the FRG)","Inland waterways",10.2
+"538",2013,"Germany","Railways",19.1
+"539",2013,"Germany","Roads",70.7
+"540",2013,"Germany","Inland waterways",10.2
 "541",2013,"Estonia","Railways",63.7
 "542",2013,"Estonia","Roads",36.3
 "543",2013,"Estonia","Inland waterways",NA
@@ -623,9 +623,9 @@
 "622",2014,"Denmark","Railways",11.2
 "623",2014,"Denmark","Roads",88.8
 "624",2014,"Denmark","Inland waterways",NA
-"625",2014,"Germany (until 1990 former territory of the FRG)","Railways",18.8
-"626",2014,"Germany (until 1990 former territory of the FRG)","Roads",71.3
-"627",2014,"Germany (until 1990 former territory of the FRG)","Inland waterways",9.9
+"625",2014,"Germany","Railways",18.8
+"626",2014,"Germany","Roads",71.3
+"627",2014,"Germany","Inland waterways",9.9
 "628",2014,"Estonia","Railways",55.2
 "629",2014,"Estonia","Roads",44.8
 "630",2014,"Estonia","Inland waterways",NA
@@ -710,9 +710,9 @@
 "709",2015,"Denmark","Railways",12.2
 "710",2015,"Denmark","Roads",87.8
 "711",2015,"Denmark","Inland waterways",NA
-"712",2015,"Germany (until 1990 former territory of the FRG)","Railways",19.5
-"713",2015,"Germany (until 1990 former territory of the FRG)","Roads",71.3
-"714",2015,"Germany (until 1990 former territory of the FRG)","Inland waterways",9.2
+"712",2015,"Germany","Railways",19.5
+"713",2015,"Germany","Roads",71.3
+"714",2015,"Germany","Inland waterways",9.2
 "715",2015,"Estonia","Railways",52.4
 "716",2015,"Estonia","Roads",47.6
 "717",2015,"Estonia","Inland waterways",NA
@@ -797,9 +797,9 @@
 "796",2016,"Denmark","Railways",11.1
 "797",2016,"Denmark","Roads",88.9
 "798",2016,"Denmark","Inland waterways",NA
-"799",2016,"Germany (until 1990 former territory of the FRG)","Railways",18.8
-"800",2016,"Germany (until 1990 former territory of the FRG)","Roads",72.4
-"801",2016,"Germany (until 1990 former territory of the FRG)","Inland waterways",8.8
+"799",2016,"Germany","Railways",18.8
+"800",2016,"Germany","Roads",72.4
+"801",2016,"Germany","Inland waterways",8.8
 "802",2016,"Estonia","Railways",42.9
 "803",2016,"Estonia","Roads",57.1
 "804",2016,"Estonia","Inland waterways",NA
