@@ -1,7 +1,7 @@
 "","Leto","Drzava","Prevozno_sredstvo","Delez"
-"1",2007,"European Union (current composition)","Trains",7.1
-"2",2007,"European Union (current composition)","Passenger cars",83.1
-"3",2007,"European Union (current composition)","Motor coaches, buses and trolley buses",9.8
+"1",2007,"European Union","Trains",7.1
+"2",2007,"European Union","Passenger cars",83.1
+"3",2007,"European Union","Motor coaches, buses and trolley buses",9.8
 "4",2007,"Belgium","Trains",7.1
 "5",2007,"Belgium","Passenger cars",78.8
 "6",2007,"Belgium","Motor coaches, buses and trolley buses",14.1
@@ -86,9 +86,9 @@
 "85",2007,"Switzerland","Trains",17
 "86",2007,"Switzerland","Passenger cars",77.4
 "87",2007,"Switzerland","Motor coaches, buses and trolley buses",5.5
-"88",2008,"European Union (current composition)","Trains",7.4
-"89",2008,"European Union (current composition)","Passenger cars",82.8
-"90",2008,"European Union (current composition)","Motor coaches, buses and trolley buses",9.9
+"88",2008,"European Union","Trains",7.4
+"89",2008,"European Union","Passenger cars",82.8
+"90",2008,"European Union","Motor coaches, buses and trolley buses",9.9
 "91",2008,"Belgium","Trains",7.5
 "92",2008,"Belgium","Passenger cars",79.6
 "93",2008,"Belgium","Motor coaches, buses and trolley buses",13
@@ -173,9 +173,9 @@
 "172",2008,"Switzerland","Trains",17.1
 "173",2008,"Switzerland","Passenger cars",77.8
 "174",2008,"Switzerland","Motor coaches, buses and trolley buses",5.2
-"175",2009,"European Union (current composition)","Trains",7.1
-"176",2009,"European Union (current composition)","Passenger cars",83.6
-"177",2009,"European Union (current composition)","Motor coaches, buses and trolley buses",9.3
+"175",2009,"European Union","Trains",7.1
+"176",2009,"European Union","Passenger cars",83.6
+"177",2009,"European Union","Motor coaches, buses and trolley buses",9.3
 "178",2009,"Belgium","Trains",7.5
 "179",2009,"Belgium","Passenger cars",79.5
 "180",2009,"Belgium","Motor coaches, buses and trolley buses",13
@@ -260,9 +260,9 @@
 "259",2009,"Switzerland","Trains",17.4
 "260",2009,"Switzerland","Passenger cars",77.5
 "261",2009,"Switzerland","Motor coaches, buses and trolley buses",5.1
-"262",2010,"European Union (current composition)","Trains",7.2
-"263",2010,"European Union (current composition)","Passenger cars",83.4
-"264",2010,"European Union (current composition)","Motor coaches, buses and trolley buses",9.4
+"262",2010,"European Union","Trains",7.2
+"263",2010,"European Union","Passenger cars",83.4
+"264",2010,"European Union","Motor coaches, buses and trolley buses",9.4
 "265",2010,"Belgium","Trains",7.7
 "266",2010,"Belgium","Passenger cars",79.7
 "267",2010,"Belgium","Motor coaches, buses and trolley buses",12.7
@@ -347,9 +347,9 @@
 "346",2010,"Switzerland","Trains",17.6
 "347",2010,"Switzerland","Passenger cars",77.3
 "348",2010,"Switzerland","Motor coaches, buses and trolley buses",5.1
-"349",2011,"European Union (current composition)","Trains",7.4
-"350",2011,"European Union (current composition)","Passenger cars",83.2
-"351",2011,"European Union (current composition)","Motor coaches, buses and trolley buses",9.4
+"349",2011,"European Union","Trains",7.4
+"350",2011,"European Union","Passenger cars",83.2
+"351",2011,"European Union","Motor coaches, buses and trolley buses",9.4
 "352",2011,"Belgium","Trains",7.7
 "353",2011,"Belgium","Passenger cars",79.5
 "354",2011,"Belgium","Motor coaches, buses and trolley buses",12.8
@@ -434,9 +434,9 @@
 "433",2011,"Switzerland","Trains",19.6
 "434",2011,"Switzerland","Passenger cars",74.8
 "435",2011,"Switzerland","Motor coaches, buses and trolley buses",5.7
-"436",2012,"European Union (current composition)","Trains",7.7
-"437",2012,"European Union (current composition)","Passenger cars",82.9
-"438",2012,"European Union (current composition)","Motor coaches, buses and trolley buses",9.5
+"436",2012,"European Union","Trains",7.7
+"437",2012,"European Union","Passenger cars",82.9
+"438",2012,"European Union","Motor coaches, buses and trolley buses",9.5
 "439",2012,"Belgium","Trains",7.8
 "440",2012,"Belgium","Passenger cars",79.3
 "441",2012,"Belgium","Motor coaches, buses and trolley buses",12.9
@@ -521,9 +521,9 @@
 "520",2012,"Switzerland","Trains",19.2
 "521",2012,"Switzerland","Passenger cars",75
 "522",2012,"Switzerland","Motor coaches, buses and trolley buses",5.7
-"523",2013,"European Union (current composition)","Trains",7.8
-"524",2013,"European Union (current composition)","Passenger cars",82.4
-"525",2013,"European Union (current composition)","Motor coaches, buses and trolley buses",9.8
+"523",2013,"European Union","Trains",7.8
+"524",2013,"European Union","Passenger cars",82.4
+"525",2013,"European Union","Motor coaches, buses and trolley buses",9.8
 "526",2013,"Belgium","Trains",8.2
 "527",2013,"Belgium","Passenger cars",79.8
 "528",2013,"Belgium","Motor coaches, buses and trolley buses",11.9
@@ -608,9 +608,9 @@
 "607",2013,"Switzerland","Trains",19.3
 "608",2013,"Switzerland","Passenger cars",75
 "609",2013,"Switzerland","Motor coaches, buses and trolley buses",5.7
-"610",2014,"European Union (current composition)","Trains",7.8
-"611",2014,"European Union (current composition)","Passenger cars",82.6
-"612",2014,"European Union (current composition)","Motor coaches, buses and trolley buses",9.6
+"610",2014,"European Union","Trains",7.8
+"611",2014,"European Union","Passenger cars",82.6
+"612",2014,"European Union","Motor coaches, buses and trolley buses",9.6
 "613",2014,"Belgium","Trains",8.2
 "614",2014,"Belgium","Passenger cars",80.4
 "615",2014,"Belgium","Motor coaches, buses and trolley buses",11.4
@@ -695,9 +695,9 @@
 "694",2014,"Switzerland","Trains",19.6
 "695",2014,"Switzerland","Passenger cars",74.6
 "696",2014,"Switzerland","Motor coaches, buses and trolley buses",5.8
-"697",2015,"European Union (current composition)","Trains",7.8
-"698",2015,"European Union (current composition)","Passenger cars",82.7
-"699",2015,"European Union (current composition)","Motor coaches, buses and trolley buses",9.5
+"697",2015,"European Union","Trains",7.8
+"698",2015,"European Union","Passenger cars",82.7
+"699",2015,"European Union","Motor coaches, buses and trolley buses",9.5
 "700",2015,"Belgium","Trains",7.8
 "701",2015,"Belgium","Passenger cars",81.2
 "702",2015,"Belgium","Motor coaches, buses and trolley buses",10.9
@@ -782,9 +782,9 @@
 "781",2015,"Switzerland","Trains",19.8
 "782",2015,"Switzerland","Passenger cars",74.4
 "783",2015,"Switzerland","Motor coaches, buses and trolley buses",5.9
-"784",2016,"European Union (current composition)","Trains",7.7
-"785",2016,"European Union (current composition)","Passenger cars",82.9
-"786",2016,"European Union (current composition)","Motor coaches, buses and trolley buses",9.4
+"784",2016,"European Union","Trains",7.7
+"785",2016,"European Union","Passenger cars",82.9
+"786",2016,"European Union","Motor coaches, buses and trolley buses",9.4
 "787",2016,"Belgium","Trains",7.7
 "788",2016,"Belgium","Passenger cars",81.8
 "789",2016,"Belgium","Motor coaches, buses and trolley buses",10.5
