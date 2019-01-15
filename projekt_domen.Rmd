@@ -1,0 +1,108 @@
+---
+title: "Analiza transporta v Evropi"
+author: "Domen Flakus Bosilj"
+date: "January 15, 2019"
+output:
+  html_document: default
+  pdf_document:
+    includes:
+      in_header: lib/styles.sty
+    latex_engine: xelatex
+---
+
+```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+# Če želimo nastaviti pisave v PDF-ju, odkomentiramo
+# in sledimo navodilom v programu.
+#source("fontconfig.r", encoding="UTF-8")
+
+# Uvoz vseh potrebnih knjižnic
+source("lib/libraries.r", encoding="UTF-8")
+```
+
+```{r rstudio, echo=FALSE, results='asis'}
+# Izris povezave do RStudia na Binderju
+source("lib/rstudio.r", encoding="UTF-8")
+```
+
+# Izbira teme
+
+Analiza transporta v Evropi:
+  - primerjava med posameznimi državami glede na to kolikšen delež ljudi uporablja določeno vrsto      transporta,
+  - primerjava med posameznimi državami glede na to kako prometno varna je katera, primerjava tudi     med prevoznimi sredstvi
+  - primerjava količine toplogrednih plinov v posameznih državah in iskanje povezave s prometom        (npr. države kjer manjši delež ljudi uporablja javni potniški promet ima v zraku več               toplogrednih plinov)
+  - analiza povezave med gospodarsko razvitostjo države in uporabo javnega potniškega prometa (npr.     v državah z višjim BDPpc ljudje več uporabljajo javni potniški promet)
+
+***
+
+# Obdelava, uvoz in čiščenje podatkov
+
+```{r uvoz, echo=FALSE, message=FALSE}
+source("uvoz/uvoz_domen.r", encoding="UTF-8")
+```
+
+Podatke za svoj projekt sem poiskal na spletnih straneh Eurostata in jih shranil kot CSV datoteke. Pridobljene podatke sem nato uredil in jih zbral v več razpredelnicah v obliki *tidy data*.
+
+Tabela 1 (Kolikšen delež ljudi uporablja določeno prevozno sredstvo):
+  - 'Leto' - spremenljivka: leto
+  - 'Drzava' - spremenljivka: ime države
+  - 'Prevozno_sredstvo' - spremenljivka: 3 prevozna sredstva
+  - 'Delez' - meritev: delež ljudi, ki uporabljajo določeno prevozno sredstvo
+
+Tabela 2 (Katera izmed evropskih držav je prometno najvarnejša):
+  - 'Leto' - spremenljivka: leto
+  - 'Drzava' - spremenljivka: ime države
+  - 'Smrti_pmio' - meritev: število smrti v prometu na milijon ljudi
+  
+Tabela 3 (Kako velik vpliv na onesnaženost ozračja ima promet):
+  - 'Leto' - spremenljivka: leto
+  - 'Drzava' - spremenljivka: ime države
+  - 'Kolicina_kg_na_mio' - meritev: količina toplogrednih plinov v kg na milijon ljudi
+  
+
+Sestavil sem še nekaj tabel, ki pa sem jih potreboval le za vmesne korake, in niso pomembne za končne rezultate analize.
+
+
+***
+
+# Analiza in vizualizacija podatkov
+
+```{r vizualizacija, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+source("vizualizacija/vizualizacija_domen.r", encoding="UTF-8")
+```
+
+
+Na spodnjem grafu je prikazano, kolikšen delež ljudi v določeni državi in letu uporablja eno izmed analiziranih vrst transporta.
+
+```{r line, echo=FALSE, message=FALSE, fig.align='center', fig.cap='Delezi uporabe prevoznih     sredstev v Evropskih državah'} 
+graf_delez_ljudi
+```
+
+
+Zemljevid Evrope
+
+```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid Evrope'}
+graf_europe
+```
+
+***
+
+<!-- # Napredna analiza podatkov -->
+
+<!-- ```{r analiza, echo=FALSE, message=FALSE} -->
+<!-- source("analiza/analiza.r", encoding="UTF-8") -->
+<!-- ``` -->
+
+<!-- Spodnji graf prikazuje povezavo med številom naselij in površino občine. -->
+
+<!-- ```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'} -->
+<!-- ggplot(inner_join(obcine, data.frame(obcina=names(skupine), -->
+<!--                                      skupina=factor(skupine)), by="obcina") -->
+<!-- , aes(x=povrsina, y=naselja, color=skupina, size=prebivalci/1000)) + geom_point() + -->
+<!--   ggtitle("Število naselij glede na površino občine") + -->
+<!--   xlab(expression("Površina (km"^2 * ")")) + ylab("Št. naselij") + -->
+<!--   guides(color=guide_legend(title="Skupina"), -->
+<!--          size=guide_legend(title="Prebivalci (* 1000)")) -->
+<!-- ``` -->
+
+***
+
