@@ -112,15 +112,27 @@ smrti_sum <- summarise(grp, vsote=sum(Stevilo, na.rm = TRUE))
 
 
 #Tabela 8
-smrti_pmio <- left_join(smrti_sum, prebivalstvo)
-names(smrti_pmio) <- c("Leto", "Drzava", 'Smrti', 'Stevilo_ljudi')
 
-smrti_pmio <- transform(smrti_pmio, Smrti_pmio = ((Smrti / Stevilo_ljudi) * 1000000))
+smrti_pmio <- left_join(smrti, prebivalstvo, by = c("Leto", "Drzava"))
+names(smrti_pmio) <- c("Leto", "Drzava", 'Prevozno_sredstvo','Stevilo_smrti', 'Stevilo_ljudi')
 
+smrti_pmio <- transform(smrti_pmio, Stevilo = ((Stevilo_smrti / Stevilo_ljudi) * 1000000))
+
+smrti_pmio <- smrti_pmio[,-5]
 smrti_pmio <- smrti_pmio[,-4]
-smrti_pmio <- smrti_pmio[,-3]
 
-smrti_pmio$Smrti_pmio <- round(smrti_pmio$Smrti_pmio, digits=2)
+smrti_pmio$Stevilo <- round(smrti_pmio$Stevilo, digits=2)
+
+
+# smrti_pmio <- left_join(smrti_sum, prebivalstvo)
+# names(smrti_pmio) <- c("Leto", "Drzava", 'Smrti', 'Stevilo_ljudi')
+# 
+# smrti_pmio <- transform(smrti_pmio, Stevilo = ((Smrti / Stevilo_ljudi) * 1000000))
+# 
+# smrti_pmio <- smrti_pmio[,-4]
+# smrti_pmio <- smrti_pmio[,-3]
+# 
+# smrti_pmio$Stevilo <- round(smrti_pmio$Stevilo, digits=2)
 
 
 #Tabela 10
