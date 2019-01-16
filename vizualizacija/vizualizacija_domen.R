@@ -23,10 +23,6 @@ graf_gas_pmio <- ggplot(data = gas_pmio, mapping = aes(x=Drzava, y=Kolicina_kg_n
 
 
 #graf delez ljudi
-# graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Drzava, y=Delez,
-#                                                             fill=Prevozno_sredstvo, group=Leto)) +
-#   geom_bar(stat = 'identity',position = 'dodge') +
-#   theme(axis.text.x = element_text(angle = 90, size = 8))
 
 graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Leto, y=Delez,
                                                              color=Prevozno_sredstvo)) +
@@ -34,13 +30,19 @@ graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Leto, y=Delez,
   geom_line() +
   facet_grid(. ~ Drzava) +
   theme(axis.text.x = element_text(angle = 90, size = 5)) 
+
 # +
-#   theme(legend.title = element_text('Prevozno sredstvo'))
+#   theme(legend.title = element_text('Prevozno sredstvo'))# graf_delez_ljudi <- ggplot(data = delez_ljudi, mapping = aes(x=Drzava, y=Delez,
+#                                                             fill=Prevozno_sredstvo, group=Leto)) +
+#   geom_bar(stat = 'identity',position = 'dodge') +
+#   theme(axis.text.x = element_text(angle = 90, size = 8))
+
 
 #graf smrti
-graf_smrti <- ggplot(data = smrti, mapping = aes(x=Drzava, y=Stevilo,
-                                                 fill=Prevozno_sredstvo, group=Leto)) +
-  geom_bar(stat = 'identity', position = 'dodge') +
+graf_smrti <- ggplot(data = smrti_pmio, mapping = aes(x=Leto, y=Stevilo,
+                                                 color=Prevozno_sredstvo, group=Leto)) +
+  geom_point(stat = 'identity', position = 'dodge') +
+  facet_grid(. ~ Drzava) +
   theme(axis.text.x = element_text(angle = 90, size = 6))
 
 
