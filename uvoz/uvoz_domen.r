@@ -85,7 +85,6 @@ greenhouse_gas$Drzava <- gsub("^Germany.*", "Germany", greenhouse_gas$Drzava)
 
 
 #Tabela 6
-
 bdppc <- read_csv('podatki/bdppc.csv', locale=loc, skip = 1,
                            col_names = c('Leto', 'Drzava', 'unit', 'na', 'Kolicina_eur',
                                          'krnekaj'), na = c(':', ''))
@@ -112,7 +111,6 @@ smrti_sum <- summarise(grp, vsote=sum(Stevilo, na.rm = TRUE))
 
 
 #Tabela 8
-
 smrti_pmio <- left_join(smrti, prebivalstvo, by = c("Leto", "Drzava"))
 names(smrti_pmio) <- c("Leto", "Drzava", 'Prevozno_sredstvo','Stevilo_smrti', 'Stevilo_ljudi')
 
@@ -122,17 +120,6 @@ smrti_pmio <- smrti_pmio[,-5]
 smrti_pmio <- smrti_pmio[,-4]
 
 smrti_pmio$Stevilo <- round(smrti_pmio$Stevilo, digits=2)
-
-
-# smrti_pmio <- left_join(smrti_sum, prebivalstvo)
-# names(smrti_pmio) <- c("Leto", "Drzava", 'Smrti', 'Stevilo_ljudi')
-# 
-# smrti_pmio <- transform(smrti_pmio, Stevilo = ((Smrti / Stevilo_ljudi) * 1000000))
-# 
-# smrti_pmio <- smrti_pmio[,-4]
-# smrti_pmio <- smrti_pmio[,-3]
-# 
-# smrti_pmio$Stevilo <- round(smrti_pmio$Stevilo, digits=2)
 
 
 #Tabela 10
@@ -145,6 +132,25 @@ gas_pmio <- gas_pmio[,-4]
 gas_pmio <- gas_pmio[,-3]
 
 gas_pmio$Kolicina_kg_na_mio <- round(gas_pmio$Kolicina_kg_na_mio, digits=0)
+
+
+#Tabela 11
+smrti_sum_pmio <- left_join(smrti_sum, prebivalstvo, by = c("Leto", "Drzava"))
+names(smrti_sum_pmio) <- c("Leto", "Drzava",'Stevilo_smrti', 'Stevilo_ljudi')
+
+smrti_sum_pmio <- transform(smrti_sum_pmio, Stevilo = ((Stevilo_smrti / Stevilo_ljudi) * 1000000))
+
+smrti_sum_pmio <- smrti_sum_pmio[,-4]
+smrti_sum_pmio <- smrti_sum_pmio[,-3]
+
+smrti_sum_pmio$Stevilo <- round(smrti_sum_pmio$Stevilo, digits=2)
+
+smrti_sum_pmio_2016 <- filter(smrti_sum_pmio, Leto == '2016')
+smrti_sum_pmio_2016 <- smrti_sum_pmio_2016[,-1]
+
+smrti_sum_pmio_2016[smrti_sum_pmio_2016 == 0] <- NA
+
+
 
 
 #Shranjevanje tidy tabel
