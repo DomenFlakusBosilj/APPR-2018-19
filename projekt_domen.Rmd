@@ -19,6 +19,10 @@ output:
 source("lib/libraries.r", encoding="UTF-8")
 ```
 
+![](http://fojopinestar.com/images/image_contact.png)
+
+Vir: fojopinestar.com
+
 ```{r rstudio, echo=FALSE, results='asis'}
 # Izris povezave do RStudia na Binderju
 source("lib/rstudio.r", encoding="UTF-8")
@@ -52,23 +56,23 @@ Podatke za svoj projekt sem poiskal na spletnih straneh Eurostata in opisujejo o
 
 Tabela 1 (delez_ljudi: Kolikšen delež ljudi uporablja določeno prevozno sredstvo):
 
-- 'Leto' - spremenljivka: leto
-- 'Drzava' - spremenljivka: ime države
-- 'Prevozno_sredstvo' - spremenljivka: 3 prevozna sredstva
-- 'Delez' - meritev: delež ljudi, ki uporabljajo določeno prevozno sredstvo
+- `Leto` - spremenljivka: leto
+- `Drzava` - spremenljivka: ime države
+- `Prevozno_sredstvo` - spremenljivka: 3 prevozna sredstva
+- `Delez` - meritev: delež ljudi, ki uporabljajo določeno prevozno sredstvo
 
 Tabela 2 (smrti_pmio: Katera izmed evropskih držav je prometno najvarnejša):
 
-- 'Leto' - spremenljivka: leto
-- 'Drzava' - spremenljivka: ime države
-- 'Smrti_pmio' - meritev: število smrti v prometu na milijon ljudi
+- `Leto` - spremenljivka: leto
+- `Drzava` - spremenljivka: ime države
+- `Smrti_pmio` - meritev: število smrti v prometu na milijon ljudi
   
 Tabela 3 (gas_pmio: Kako velik vpliv na onesnaženost ozračja ima promet):
 
-- 'Leto' - spremenljivka: leto
-- 'Drzava' - spremenljivka: ime države
-- 'Kolicina_kg_na_mio' - meritev: količina toplogrednih plinov v kg na milijon ljudi
-  
+- `Leto` - spremenljivka: leto
+- `Drzava` - spremenljivka: ime države
+- `Kolicina_kg_na_mio` - meritev: količina toplogrednih plinov v kg na milijon ljudi
+
 
 Sestavil sem še nekaj tabel, ki pa sem jih potreboval le za vmesne korake, in niso pomembne za končne rezultate analize.
 
@@ -84,27 +88,25 @@ source("vizualizacija/vizualizacija_domen.R", encoding="UTF-8")
 
 Na spodnjem grafu je prikazano, kolikšen delež ljudi v določeni državi in letu uporablja eno izmed analiziranih vrst transporta.
 
-```{r graf_delez_ljudi, echo=FALSE, message=FALSE, fig.align='center', fig.height=20,  fig.cap='Deleži uporabe prevoznih sredstev v Evropskih državah'} 
+```{r graf_delez_ljudi, echo=FALSE, message=FALSE, fig.align='center', fig.height=30,  fig.cap='Graf 1'} 
 graf_delez_ljudi
 ```
 
-```{r graf_gas_pmio, echo=FALSE, message=FALSE, fig.align='center', warning=FALSE, fig.cap='Količina toplogrednih plinov v ozračju'} 
+```{r graf_gas_pmio, echo=FALSE, message=FALSE, fig.align='center', warning=FALSE, fig.cap='Graf 2'} 
 graf_gas_pmio
 ```
 
 Če pogledamo oba grafa lahko v več primerih držav vidimo, da najverjetneje obstaja povezavo med količino toplogrednih plinov v ozračju in tem, katero vrsto transporta uporabljajo prebivalci določene države (npr. kjer se je zmanjšal delež uporabe osebnih avtomobilov se je enako zgodilo tudi s količino toplogrednih plinov v ozračju).
 
 
-```{r graf_smrti, echo=FALSE, message=FALSE, fig.align='center', fig.height=20, warning=FALSE, fig.cap='Število smrti v prometnih nesrečah na milijon prebivalcev'} 
+```{r graf_smrti, echo=FALSE, message=FALSE, fig.align='center', fig.height=20, warning=FALSE, fig.cap='Graf 3'} 
 graf_smrti
 ```
 
 Iz grafa je razvidno, da gre v veliki večini nesreč za nesreče osebnih avtomobilov, kar pa je pričakovano, saj je tudi delež uporabe avtomobilov daleč največji. Zanimivo je, da so v mnogih državah kljub temu da več ljudi uporablja vlake kot avtobuse, slednji udeleženi v manj nesrečah s smrtnim izidom.
 
 
-Zemljevid Evrope
-
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid Evrope'}
+```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid 1'}
 
 zemljevid_smrti_sum_pmio_2016
 ```
@@ -117,12 +119,19 @@ zemljevid_smrti_sum_pmio_2016
 source("analiza/analiza_domen.R", encoding="UTF-8")
 ```
 
-Spodnji graf prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf regresija, echo=FALSE, fig.align='center', fig.cap='Napoved števila smrti v prometu v naslednjih letih', warning=FALSE}
+```{r graf regresija, echo=FALSE, fig.align='center', fig.cap='Graf 4', warning=FALSE}
 
 graf_regresija
 ```
+
+Iz grafa je razvidno, da število smrti v prometu v zadnjih letih kar strmo pada. Padanje lahko pričakujemo še za prihodnjih nekaj let, vendar to padanje najverjetneje ne bo več tako strmo.
+
+
+```{r}
+cluster
+```
+
+Iz tabele lahko vidimo, da se države, ki se uvrščajo povsem na vrh glede na bdp na prebivalca hkrati države, v katerih je najmanj prometnih nesreč (analiziral sem le nesreče z avtomobili, saj je tistih z vlaki in avtobusi zelo malo). Prav tako pa so prometno najnevarnejše države prav tiste, z nizkim bdp. 
 
 ***
 
