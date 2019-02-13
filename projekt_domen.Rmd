@@ -106,11 +106,6 @@ graf_smrti
 Iz grafa je razvidno, da gre v veliki večini nesreč za nesreče osebnih avtomobilov, kar pa je pričakovano, saj je tudi delež uporabe avtomobilov daleč največji. Zanimivo je, da so v mnogih državah kljub temu da več ljudi uporablja vlake kot avtobuse, slednji udeleženi v manj nesrečah s smrtnim izidom.
 
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid 1'}
-
-zemljevid_smrti_sum_pmio_2016
-```
-
 ***
 
 # Napredna analiza podatkov
@@ -118,6 +113,13 @@ zemljevid_smrti_sum_pmio_2016
 ```{r analiza, echo=FALSE, message=FALSE}
 source("analiza/analiza_domen.R", encoding="UTF-8")
 ```
+
+```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid 1'}
+
+zemljevid_smrti_sum_pmio_2016
+```
+
+Na zemljevidu vidimo evropske države, obarvane glede na to, koliko je bilo v tisti državi žrtev prometnih nesreč v letu 2016.
 
 ```{r graf regresija, echo=FALSE, fig.align='center', fig.cap='Graf 4', warning=FALSE}
 
