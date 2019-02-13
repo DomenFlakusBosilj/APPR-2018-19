@@ -1,17 +1,5 @@
 source("lib/libraries.r", encoding="UTF-8")
 
-# osnovni.podatki <- rbind(osnovni.podatki.poroke, osnovni.podatki.razveze)
-# 
-# ociscena <- subset(osnovni.podatki, spremenljivka == "Sklenitve zakonskih zvez - Skupaj")
-# fit <- lm(data = ociscena, vrednost ~ leto)
-# a <- data.frame(leto=seq(2016, 2030, 2))
-# predict(fit, a)
-# napoved <- a %>% mutate(vrednost=predict(fit, .))
-# graf5 <- ggplot(ociscena, aes(x=leto, y=vrednost)) +
-#   geom_smooth(method=lm, se=FALSE, fullrange = TRUE) +
-#   geom_point(data=napoved, aes(x=leto, y=vrednost), color="orange", size=3) +
-#   labs(title="Napoved števila porok", y="Število porok") + geom_point()
-
 #Regresijska premica za stevilo smrti v prometu v Evropi
 grp <- group_by(smrti_sum, Leto)
 smrti_europa <- summarise(grp, vsote1=sum(vsote, na.rm = TRUE))
@@ -36,3 +24,38 @@ graf_regresija <- ggplot(smrti_europa_pmio, aes(x=Leto, y=Stevilo)) +
   geom_point(data=napoved, aes(x=Leto, y=Stevilo), color='red', size=2) +
   geom_point() +
   labs(title='Napoved števila smrti v prometu v naslednjih letih', y="Število smrti")
+
+#Clusters (smrti_pmio_avto)
+smrti_pmio_avto_2016 <- filter(smrti_pmio, Prevozno_sredstvo == 'Avto', Leto == '2016',
+                          Stevilo != 'NA')
+smrti_pmio_avto_2016 <- smrti_pmio_avto_2016[,-3]
+smrti_pmio_avto_2016 <- smrti_pmio_avto_2016[,-1]
+smrti_pmio_avto_2016 <- smrti_pmio_avto_2016[order(smrti_pmio_avto_2016$Stevilo),]
+
+n <- 5
+fit <- hclust(dist(scale(smrti_pmio_avto_2016$Stevilo)))
+skupine1 <- cutree(fit, n)
+
+cluster1 <- mutate(smrti_pmio_avto_2016, skupine1)
+
+# plot(fit)
+# rect.hclust(fit, k=5, border = 'red')
+
+
+#Clusters (bdppc)
+bdppc_2016 <- filter(bdppc, Leto == '2016')
+
+bdppc_2016 <- bdppc_2016[, -1]
+
+n <- 5
+fit <- hclust(dist(scale(bdppc_2016$Kolicina_eur)))
+skupine2 <- cutree(fit, n)
+
+cluster2 <- mutate(bdppc_2016, skupine2)
+
+#Clustere zdruzim
+
+cluster <- left_join(cluster1, cluster2, by = c("Drzava"))
+cluster <- cluster[,-4]
+cluster <- cluster[,-2]
+colnames(cluster)<- c("Drzava","Glede na varnost","Glede na bdppc")
