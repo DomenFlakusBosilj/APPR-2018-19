@@ -149,7 +149,7 @@ smrti_sum_pmio_2016 <- filter(smrti_sum_pmio, Leto == '2016')
 smrti_sum_pmio_2016 <- smrti_sum_pmio_2016[,-1]
 
 smrti_sum_pmio_2016[smrti_sum_pmio_2016 == 0] <- NA
-
+smrti_sum_pmio_2016 <- filter(smrti_sum_pmio_2016, Stevilo != 'NA')
 
 
 
