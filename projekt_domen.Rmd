@@ -1,7 +1,7 @@
 ---
 title: "Analiza transporta v Evropi"
 author: "Domen Flakus Bosilj"
-date: "January 15, 2019"
+date: "February 15, 2019"
 output:
   html_document: default
   pdf_document:
@@ -74,7 +74,7 @@ Tabela 3 (gas_pmio: Kako velik vpliv na onesnaženost ozračja ima promet):
 - `Kolicina_kg_na_mio` - meritev: količina toplogrednih plinov v kg na milijon ljudi
 
 
-Sestavil sem še nekaj tabel, ki pa sem jih potreboval le za vmesne korake, in niso pomembne za končne rezultate analize.
+Sestavil sem še veliko tabel, ki sem jih potreboval le za vmesne korake.
 
 
 ***
@@ -88,38 +88,49 @@ source("vizualizacija/vizualizacija_domen.R", encoding="UTF-8")
 
 Na spodnjem grafu je prikazano, kolikšen delež ljudi v določeni državi in letu uporablja eno izmed analiziranih vrst transporta.
 
-```{r graf_delez_ljudi, echo=FALSE, message=FALSE, fig.align='center', fig.height=30,  fig.cap='Graf 1'} 
+```{r graf_delez_ljudi, echo=FALSE, message=FALSE, fig.align='center', fig.height=10,  fig.cap='Graf 1'} 
 graf_delez_ljudi
 ```
+
+Ob ogledu grafa za Avstrijo, lahko vidimo vzorec, ki ga opazimo pri mnogih razvitejših evropskih državah (uporaba avtomobilov v nad 75% in preostalih slabih 25% razdeljenih med avtobuse in vlake).
+Pri Bolgariji je posebej zanimiv jasno viden preliv velikega deleža ljudi ki so potovali z avtobusi k osebnim avtomobilom.
+Hrvaška je ena izmed držav, v katerih je uporaba avtomobilov v primerjavi z avtobusi in vlaki, zelo razširjena, podobno je npr. tudi v Litvi.
+V Estoniji je izredno majhna uporaba vlakov, cestni promet pa je posledično toliko gostejši.
+Zelo podobno razdelitev ljudi glede na uporabo različnih prevoznih sredstev imata Francija in Nemčija, le-ta pa je podobna že opisani situaciji v Avstriji.
+Madžarska je ena izmed tistih držav, kjer ljudje v primerjavi z ostalimi državami veliko pogosteje uporabljajo avtobuse in redkeje avtomobile, precej razširjen pa je tudi promet z vlaki.
+Na Irskem se je v letih po gospodarski krizi manj ljudi transportiralo z avtomobili in iz grafa se jasno vidi, da so le ti prešli na uporabo avtobusov, kar bi lahko bila posledica slabšega finančnega stanja.
+Polska je zanimiva predvsem zato, ker delež uporabe avtomobilov vsa opazovana leta narašča, podobno kot v Bolgariji.
+Švica je edina država kjer je delež uporabe vlakov v transportu ljudi veliko večji kot avtobusov.
 
 ```{r graf_gas_pmio, echo=FALSE, message=FALSE, fig.align='center', warning=FALSE, fig.cap='Graf 2'} 
 graf_gas_pmio
 ```
 
-Če pogledamo oba grafa lahko v več primerih držav vidimo, da najverjetneje obstaja povezavo med količino toplogrednih plinov v ozračju in tem, katero vrsto transporta uporabljajo prebivalci določene države (npr. kjer se je zmanjšal delež uporabe osebnih avtomobilov se je enako zgodilo tudi s količino toplogrednih plinov v ozračju).
+Če pogledamo oba grafa lahko v več primerih držav vidimo, da najverjetneje obstaja povezava med količino toplogrednih plinov v ozračju in tem, katero vrsto transporta uporabljajo prebivalci določene države (npr. kjer se je zmanjšal delež uporabe osebnih avtomobilov se je enako zgodilo tudi s količino toplogrednih plinov v ozračju).
 
 
-```{r graf_smrti, echo=FALSE, message=FALSE, fig.align='center', fig.height=20, warning=FALSE, fig.cap='Graf 3'} 
+```{r graf_smrti, echo=FALSE, message=FALSE, fig.align='center', fig.height=10, warning=FALSE, fig.cap='Graf 3'} 
 graf_smrti
 ```
 
 Iz grafa je razvidno, da gre v veliki večini nesreč za nesreče osebnih avtomobilov, kar pa je pričakovano, saj je tudi delež uporabe avtomobilov daleč največji. Zanimivo je, da so v mnogih državah kljub temu da več ljudi uporablja vlake kot avtobuse, slednji udeleženi v manj nesrečah s smrtnim izidom.
 
 
+```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid 1'}
+
+zemljevid_smrti_sum_pmio_2015
+```
+
+Na zemljevidu vidimo evropske države, obarvane glede na to, koliko je bilo v tisti državi žrtev prometnih nesreč v letu 2015.
+
 ***
 
 # Napredna analiza podatkov
 
-```{r analiza, echo=FALSE, message=FALSE}
+```{r analiza, echo=FALSE, message=FALSE, warning=FALSE}
 source("analiza/analiza_domen.R", encoding="UTF-8")
 ```
 
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid 1'}
-
-zemljevid_smrti_sum_pmio_2016
-```
-
-Na zemljevidu vidimo evropske države, obarvane glede na to, koliko je bilo v tisti državi žrtev prometnih nesreč v letu 2016.
 
 ```{r graf regresija, echo=FALSE, fig.align='center', fig.cap='Graf 4', warning=FALSE}
 
@@ -129,11 +140,15 @@ graf_regresija
 Iz grafa je razvidno, da število smrti v prometu v zadnjih letih kar strmo pada. Padanje lahko pričakujemo še za prihodnjih nekaj let, vendar to padanje najverjetneje ne bo več tako strmo.
 
 
-```{r}
-cluster
+```{r zemljevid cluster3, echo=FALSE, fig.align='center', fig.cap='Zemljevid 2', warning=FALSE}
+zemljevid_cluster3
 ```
 
-Iz tabele lahko vidimo, da se države, ki se uvrščajo povsem na vrh glede na bdp na prebivalca hkrati države, v katerih je najmanj prometnih nesreč (analiziral sem le nesreče z avtomobili, saj je tistih z vlaki in avtobusi zelo malo). Prav tako pa so prometno najnevarnejše države prav tiste, z nizkim bdp. 
+```{r zemljevid cluster4, echo=FALSE, fig.align='center', fig.cap='Zemljevid 3 ', warning=FALSE}
+zemljevid_cluster4
+```
+
+Iz zemljevidov lahko vidimo, da se države, ki so uvrščajo povsem na vrh glede na bdp na prebivalca hkrati države, v katerih je najmanj prometnih nesreč (obarvane svetlo). Prav tako pa so prometno najnevarnejše države prav tiste, z nizkim bdp (obarvane temneje). 
 
 ***
 
