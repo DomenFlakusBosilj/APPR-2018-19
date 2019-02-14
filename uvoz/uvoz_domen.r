@@ -145,11 +145,12 @@ smrti_sum_pmio <- smrti_sum_pmio[,-3]
 
 smrti_sum_pmio$Stevilo <- round(smrti_sum_pmio$Stevilo, digits=2)
 
-smrti_sum_pmio_2016 <- filter(smrti_sum_pmio, Leto == '2016')
-smrti_sum_pmio_2016 <- smrti_sum_pmio_2016[,-1]
+smrti_sum_pmio_2015 <- filter(smrti_sum_pmio, Leto == '2015', Drzava != 'Ireland')
+smrti_sum_pmio_2015 <- filter(smrti_sum_pmio_2015, Drzava != 'Slovakia')
+smrti_sum_pmio_2015 <- smrti_sum_pmio_2015[,-1]
 
-smrti_sum_pmio_2016[smrti_sum_pmio_2016 == 0] <- NA
-smrti_sum_pmio_2016 <- filter(smrti_sum_pmio_2016, Stevilo != 'NA')
+smrti_sum_pmio_2015[smrti_sum_pmio_2015 == 0] <- NA
+smrti_sum_pmio_2015 <- filter(smrti_sum_pmio_2015, Stevilo != 'NA')
 
 
 
