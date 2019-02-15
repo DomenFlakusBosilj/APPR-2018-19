@@ -70,8 +70,6 @@ europe <- filter(europe, long < 55 & long > -35 & lat > 30 & lat < 85)
 
 europe <- filter(europe, NAME != "Jersey")
 europe <- filter(europe, NAME != "Russia")
-europe <- filter(europe, NAME != "Ukraine")
-europe <- filter(europe, NAME != "Montenegro")
 
 # Drzave v zemljevidu Evrope
 drzave <- unique(europe$NAME) 
