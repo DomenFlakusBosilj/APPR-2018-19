@@ -131,8 +131,7 @@ Na zemljevidu vidimo evropske države, obarvane glede na to, koliko je bilo v ti
 source("analiza/analiza_domen.R", encoding="UTF-8")
 ```
 
-
-```{r graf regresija, echo=FALSE, fig.align='center', fig.cap='Graf 4', warning=FALSE}
+```{r graf_regresija, echo=FALSE, fig.align='center', fig.cap='Graf 4', warning=FALSE}
 
 graf_regresija
 ```
@@ -140,15 +139,21 @@ graf_regresija
 Iz grafa je razvidno, da število smrti v prometu v zadnjih letih kar strmo pada. Padanje lahko pričakujemo še za prihodnjih nekaj let, vendar to padanje najverjetneje ne bo več tako strmo.
 
 
-```{r zemljevid cluster3, echo=FALSE, fig.align='center', fig.cap='Zemljevid 2', warning=FALSE}
+```{r zemljevid_cluster5, echo=FALSE, fig.align='center', fig.cap='Zemljevid 2', warning=FALSE}
+zemljevid_cluster5
+```
+
+Na zemljevidu so prikazane države katerih barve predstavljajo delitev držav v skupine glede na BDP na prebivalca ter na število smrti v prometu v letih med 2008 in 2015.
+
+
+```{r zemljevid_cluster3, echo=FALSE, fig.align='center', fig.cap='Zemljevid 3', warning=FALSE}
 zemljevid_cluster3
 ```
 
-```{r zemljevid cluster4, echo=FALSE, fig.align='center', fig.cap='Zemljevid 3 ', warning=FALSE}
+```{r zemljevid_cluster4, echo=FALSE, fig.align='center', fig.cap='Zemljevid 4', warning=FALSE}
 zemljevid_cluster4
 ```
 
-Iz zemljevidov lahko vidimo, da se države, ki so uvrščajo povsem na vrh glede na bdp na prebivalca hkrati države, v katerih je najmanj prometnih nesreč (obarvane svetlo). Prav tako pa so prometno najnevarnejše države prav tiste, z nizkim bdp (obarvane temneje). 
+Iz zemljevidov lahko vidimo, da se države, ki se uvrščajo povsem na vrh glede na bdp na prebivalca hkrati države, v katerih je najmanj prometnih nesreč (obarvane svetlo). Prav tako pa so prometno najnevarnejše države prav tiste, z nizkim bdp (obarvane temneje). 
 
 ***
-
