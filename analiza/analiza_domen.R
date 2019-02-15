@@ -25,8 +25,61 @@ graf_regresija <- ggplot(smrti_europa_pmio, aes(x=Leto, y=Stevilo)) +
   labs(title='Napoved števila smrti v prometu v naslednjih letih', y="Število")
 
 
+#==================================================================================
+# SKUPNA RAZDELITEV (bdp in smrti)
 
-#====================================================================================
+smrti_pmio_avto <- filter(smrti_pmio, Prevozno_sredstvo == 'Avto', Leto != '2007',
+                          Leto != '2016', Drzava != 'Ireland', Drzava != 'Lithuania',
+                          Drzava != 'Slovakia')
+smrti_pmio_avto <- smrti_pmio_avto[,-3]
+smrti_pmio_avto <- dcast(smrti_pmio_avto, Drzava~Leto, value.var = 'Stevilo')
+
+
+bdppc_a <- filter(bdppc, Leto != '2007', Leto != '2016', Drzava != 'Ireland',
+                  Drzava != 'Lithuania', Drzava != 'Slovakia')
+bdppc_a <- dcast(bdppc_a, Drzava~Leto, value.var = 'Kolicina_eur')
+
+
+bdp_smrti <- left_join(smrti_pmio_avto, bdppc_a, by = c('Drzava'))
+
+bdp_smrti_a <- bdp_smrti[,-1]
+
+n <- 7
+fit <- hclust(dist(scale(bdp_smrti_a)))
+skupine5 <- cutree(fit, n)
+
+cluster5 <- mutate(bdp_smrti, skupine5)
+cluster5 <- cluster5[,-2:-17]
+colnames(cluster5)<- c("Drzava","Skupina")
+
+
+#zemljevid
+drzave <- unique(europe$NAME)
+drzave <- as.data.frame(drzave, stringsAsFactors=FALSE)
+names(drzave) <- "Drzava"
+
+skupaj <- left_join(drzave, cluster5, by="Drzava")
+
+# Zemljevid s podatki
+zemljevid_cluster5 <- ggplot() + geom_polygon(data=left_join(europe, skupaj, by=c("NAME"="Drzava")),
+                                                         aes(x=long, y=lat, group=group,
+                                                             fill=factor(Skupina))) +
+  geom_line() +
+  theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.text.y=element_blank(),
+        axis.ticks.y=element_blank()) +
+  guides(fill=guide_colorbar(title="Skupine")) +
+  ggtitle('Razvrstitev držav v skupine glede na število smrti v prometu in bdppc') +
+  labs(x = " ") +
+  labs(y = " ") +
+  scale_fill_brewer(palette="Set1", na.value = "#e0e0d1") #+
+  scale_fill_gradient(low = "#cce6ff", high = "#005cb3",
+                      space = "Lab", na.value = "#e0e0d1", guide = "black",
+                      aesthetics = "fill")
+
+
+
+#VSAKA RAZDELITEV POSEBEJ
+# #====================================================================================
 #smrti_pmio_avto za vsa leta
 
 smrti_pmio_avto <- filter(smrti_pmio, Prevozno_sredstvo == 'Avto', Leto != '2007',
@@ -56,15 +109,16 @@ colnames(cluster3)<- c("Drzava","Stevilo")
 
 
 #zemljevid
-drzave <- unique(europe$NAME) 
-drzave <- as.data.frame(drzave, stringsAsFactors=FALSE) 
+drzave <- unique(europe$NAME)
+drzave <- as.data.frame(drzave, stringsAsFactors=FALSE)
 names(drzave) <- "Drzava"
 
 skupaj <- left_join(drzave, cluster3, by="Drzava")
 
 # Zemljevid s podatki
 zemljevid_cluster3 <- ggplot() + geom_polygon(data=left_join(europe, skupaj, by=c("NAME"="Drzava")),
-                                                         aes(x=long, y=lat, group=group, fill=Stevilo)) +
+                                                         aes(x=long, y=lat, group=group, 
+                                                             fill=factor(Stevilo))) +
   geom_line() +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
@@ -72,6 +126,7 @@ zemljevid_cluster3 <- ggplot() + geom_polygon(data=left_join(europe, skupaj, by=
   ggtitle('Razvrstitev držav v skupine glede na število smrti v prometu') +
   labs(x = " ") +
   labs(y = " ") +
+  scale_fill_brewer(palette="YlOrRd", na.value = "#e0e0d1") #+
   scale_fill_gradient(low = "#cce6ff", high = "#005cb3",
                       space = "Lab", na.value = "#e0e0d1", guide = "black",
                       aesthetics = "fill")
@@ -105,15 +160,16 @@ colnames(cluster4)<- c("Drzava","Kolicina_eur")
 
 
 #zemljevid
-drzave <- unique(europe$NAME) 
-drzave <- as.data.frame(drzave, stringsAsFactors=FALSE) 
+drzave <- unique(europe$NAME)
+drzave <- as.data.frame(drzave, stringsAsFactors=FALSE)
 names(drzave) <- "Drzava"
 
 skupaj <- left_join(drzave, cluster4, by="Drzava")
 
 # Zemljevid s podatki
 zemljevid_cluster4 <- ggplot() + geom_polygon(data=left_join(europe, skupaj, by=c("NAME"="Drzava")),
-                                              aes(x=long, y=lat, group=group, fill=Kolicina_eur)) +
+                                              aes(x=long, y=lat, group=group, 
+                                                  fill=factor(Kolicina_eur))) +
   geom_line() +
   theme(axis.text.x=element_blank(), axis.ticks.x=element_blank(), axis.text.y=element_blank(),
         axis.ticks.y=element_blank()) +
@@ -121,44 +177,7 @@ zemljevid_cluster4 <- ggplot() + geom_polygon(data=left_join(europe, skupaj, by=
   ggtitle('Razvrstitev držav v skupine glede na bdppc') +
   labs(x = " ") +
   labs(y = " ") +
+  scale_fill_brewer(palette="YlOrRd", na.value = "#e0e0d1") #+
   scale_fill_gradient(low = "#e6f3ff", high = "#0069cc",
                       space = "Lab", na.value = "#e0e0d1", guide = "black",
                       aesthetics = "fill")
-
-
-
-
-
-# #=====================================================================================
-# 
-# #Clusters (smrti_pmio_avto)
-# smrti_pmio_avto_2016 <- filter(smrti_pmio, Prevozno_sredstvo == 'Avto', Leto == '2016',
-#                           Stevilo != 'NA')
-# smrti_pmio_avto_2016 <- smrti_pmio_avto_2016[,-3]
-# smrti_pmio_avto_2016 <- smrti_pmio_avto_2016[,-1]
-# smrti_pmio_avto_2016 <- smrti_pmio_avto_2016[order(smrti_pmio_avto_2016$Stevilo),]
-# 
-# n <- 5
-# fit <- hclust(dist(scale(smrti_pmio_avto_2016$Stevilo)))
-# skupine1 <- cutree(fit, n)
-# 
-# cluster1 <- mutate(smrti_pmio_avto_2016, skupine1)
-# 
-# 
-# #Clusters (bdppc)
-# bdppc_2016 <- filter(bdppc, Leto == '2016')
-# 
-# bdppc_2016 <- bdppc_2016[, -1]
-# 
-# n <- 5
-# fit <- hclust(dist(scale(bdppc_2016$Kolicina_eur)))
-# skupine2 <- cutree(fit, n)
-# 
-# cluster2 <- mutate(bdppc_2016, skupine2)
-# 
-# 
-# #Clustere zdruzim
-# cluster <- left_join(cluster1, cluster2, by = c("Drzava"))
-# cluster <- cluster[,-4]
-# cluster <- cluster[,-2]
-# colnames(cluster)<- c("Drzava","Glede na varnost","Glede na bdppc")
