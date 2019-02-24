@@ -61,11 +61,8 @@ smrti_avti_bus <- smrti_avti_bus[,-3]
 smrti_vlak <- read_csv('podatki/smrti_vlak.csv', locale=loc, skip=1,
                            col_names = c('Leto', 'Drzava', 'unit', 'accident', 'victim',
                                          'pers_inv', 'Stevilo', 'krnekaj'), na = c(':', ''))
-smrti_vlak <- smrti_vlak[,-8]
-smrti_vlak <- smrti_vlak[,-6]
-smrti_vlak <- smrti_vlak[,-5]
-smrti_vlak <- smrti_vlak[,-4]
-smrti_vlak <- smrti_vlak[,-3]
+
+smrti_vlak <- smrti_vlak[c(-3,-4,-5,-6,-8)]
 
 smrti_vlak$Prevozno_sredstvo <- "Vlak"
 
