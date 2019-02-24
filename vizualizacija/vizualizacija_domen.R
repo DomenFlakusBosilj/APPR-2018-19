@@ -30,14 +30,15 @@ graf_gas_pmio <- ggplot(data = gas_pmio, mapping = aes(x=Drzava, y=Kolicina_kg_n
 graf_delez_ljudi <- ggplot(data = filter(delez_ljudi, Drzava == 'Austria' | Drzava == 'Bulgaria' |
                                          Drzava == 'Croatia' | Drzava == 'Czechia' | Drzava == 'Estonia' |
                                          Drzava == 'France' | Drzava == 'Hungary' | Drzava == 'Ireland' |
-                                         Drzava == 'Lithuania' | Drzava == 'Sweden' | Drzava == 'Poland' |
+                                         Drzava == 'Sweden' | Drzava == 'Poland' |
                                          Drzava == 'Slovenia' | Drzava == 'Switzerland'),
                            mapping = aes(x=Leto, y=Delez, color=Prevozno_sredstvo)) +
   labs(color='Prevozno sredstvo') +
   ggtitle("Deleži uporabe prevoznih sredstev") +
   labs(x = 'Leto', y = 'Delež') +
   geom_line() +
-  facet_grid(Drzava~.) +
+  #facet_grid(Drzava~.) +
+  facet_wrap(Drzava~., ncol=3) +
   theme(axis.text.x = element_text(angle = 90, size = 5)) 
 
 
@@ -45,14 +46,15 @@ graf_delez_ljudi <- ggplot(data = filter(delez_ljudi, Drzava == 'Austria' | Drza
 graf_smrti <- ggplot(data = filter(smrti_pmio, Drzava == 'Austria' | Drzava == 'Bulgaria' |
                                      Drzava == 'Croatia' | Drzava == 'Czechia' | Drzava == 'Estonia' |
                                      Drzava == 'France' | Drzava == 'Hungary' | Drzava == 'Ireland' |
-                                     Drzava == 'Lithuania' | Drzava == 'Sweden' | Drzava == 'Poland' |
+                                     Drzava == 'Sweden' | Drzava == 'Poland' |
                                      Drzava == 'Slovenia' | Drzava == 'Switzerland'),
                      mapping = aes(x=Leto, y=Stevilo, color=Prevozno_sredstvo, group=Leto)) +
   labs(color='Prevozno sredstvo') +
   ggtitle('Smrti v prometu z različnimi prevoznimi sredstvi') +
   labs(x = 'Leto', y = 'Število') +
   geom_point(stat = 'identity', position = 'dodge') +
-  facet_grid( Drzava~.) +
+  #facet_grid( Drzava~.) +
+  facet_wrap(Drzava~., ncol=3) +
   theme(axis.text.x = element_text(angle = 90, size = 6))
 
 
