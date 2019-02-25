@@ -17,8 +17,8 @@ graf_bdppc <- ggplot(data = bdppc, mapping = aes(x=Drzava, y=Kolicina_eur, group
 
 
 #graf greenhouse gas
-graf_gas_pmio <- ggplot(data = gas_pmio, mapping = aes(x=Drzava, y=Kolicina_kg_na_mio,
-                                                       fill=factor(Leto))) +
+graf_gas_pmio <- ggplot(data = filter(gas_pmio, Drzava != 'Luxembourg', Drzava != 'Estonia'),
+                        mapping = aes(x=Drzava, y=Kolicina_kg_na_mio, fill=factor(Leto))) +
   labs(fill='Leto') +
   ggtitle('Količina toplogrednih plinov v ozračju') +
   geom_bar(stat = 'identity', position = 'dodge') +
